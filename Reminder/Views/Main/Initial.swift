@@ -129,11 +129,16 @@ struct MyReminderLists: View {
                     Text("UPGRADE").font(.caption).bold().foregroundColor(Color.white).padding(5).padding(.leading, 10).padding(.trailing, 10).background(Color.blue).cornerRadius(20)
                 }
             }.padding(.bottom, -15)
-            List() {
-                ForEach(reminderList) { reminderList in
-                    MyListsCell(reminderList: reminderList).padding(.leading, -5)
-                }.onDelete(perform: delete)
-            }.cornerRadius(10).animation(.default)
+            
+            if !reminderList.isEmpty {
+                List() {
+                    ForEach(reminderList) { reminderList in
+                        MyListsCell(reminderList: reminderList).padding(.leading, -5)
+                    }.onDelete(perform: delete)
+                }.cornerRadius(10).animation(.default)
+            } else {
+                Spacer()
+            }
             
         }.padding(.leading, 10).padding(.trailing, 10).padding(.top, 15).padding(.bottom, -15).animation(.default)
     }
