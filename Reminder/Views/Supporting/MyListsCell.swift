@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MyListsCell: View {
-    var reminderList: ReminderList
+    @State var reminderList: ReminderList
     
     var body: some View {
         HStack() {
@@ -18,24 +18,18 @@ struct MyListsCell: View {
             Spacer()
             Text("\(reminderList.reminders.count)")
         }
-        
     }
 }
 
 struct MyListsCell_Previews: PreviewProvider {
     static var previews: some View {
-        MyListsCell(reminderList: ReminderList(name: "Reminders", color: .red))
+        MyListsCell(reminderList: ReminderList(id: 0, name: "Reminders", color: .red))
     }
 }
 
-
-class ReminderList: Identifiable {
-     var name: String
-     var color: Color
-     var reminders: [String] = [""]
-    
-    init(name: String, color: Color) {
-        self.name = name
-        self.color = color
-    }
+struct ReminderList: Identifiable {
+    var id: Int
+    var name: String
+    var color: Color
+    var reminders: [String] = [""]
 }

@@ -118,6 +118,8 @@ struct AllTile: View {
 }
 
 struct MyReminderLists: View {
+    @State var reminderList = testData
+    
     var body: some View {
         VStack() {
             HStack() {
@@ -128,10 +130,16 @@ struct MyReminderLists: View {
                 }
             }.padding(.bottom, -15)
             List() {
-                MyListsCell(reminderList: ReminderList(name: "Reminders", color: .red)).padding(.leading, -5)
+                ForEach(reminderList) { reminderList in
+                    MyListsCell(reminderList: reminderList).padding(.leading, -5)
+                }.onDelete(perform: delete)
             }.cornerRadius(10).animation(.default)
             
         }.padding(.leading, 10).padding(.trailing, 10).padding(.top, 15).padding(.bottom, -15).animation(.default)
+    }
+    
+    func delete(at offsets: IndexSet) {
+        reminderList.remove(atOffsets: offsets)
     }
 }
 
