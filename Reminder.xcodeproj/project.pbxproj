@@ -16,9 +16,9 @@
 		D42E49FA24D0973C005522C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42E49F824D0973C005522C9 /* LaunchScreen.storyboard */; };
 		D42E4A0524D0973C005522C9 /* ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A0424D0973C005522C9 /* ReminderTests.swift */; };
 		D42E4A1024D0973C005522C9 /* ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A0F24D0973C005522C9 /* ReminderUITests.swift */; };
-		D42E4A2124D097E3005522C9 /* ReminderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2024D097E3005522C9 /* ReminderList.swift */; };
 		D42E4A2324D09989005522C9 /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2224D09989005522C9 /* Initial.swift */; };
 		D42E4A2524D09A97005522C9 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2424D09A97005522C9 /* SearchBar.swift */; };
+		D4E7A99724D3429F00275290 /* MyListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99624D3429F00275290 /* MyListsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		D42E4A0B24D0973C005522C9 /* ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42E4A0F24D0973C005522C9 /* ReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUITests.swift; sourceTree = "<group>"; };
 		D42E4A1124D0973C005522C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D42E4A2024D097E3005522C9 /* ReminderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderList.swift; sourceTree = "<group>"; };
 		D42E4A2224D09989005522C9 /* Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial.swift; sourceTree = "<group>"; };
 		D42E4A2424D09A97005522C9 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		D4E7A99624D3429F00275290 /* MyListsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +158,6 @@
 		D42E4A1E24D097A2005522C9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D42E4A2024D097E3005522C9 /* ReminderList.swift */,
 				D42E4A2224D09989005522C9 /* Initial.swift */,
 			);
 			path = Main;
@@ -168,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D42E4A2424D09A97005522C9 /* SearchBar.swift */,
+				D4E7A99624D3429F00275290 /* MyListsCell.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -304,11 +304,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42E4A2524D09A97005522C9 /* SearchBar.swift in Sources */,
+				D4E7A99724D3429F00275290 /* MyListsCell.swift in Sources */,
 				D42E49EB24D09737005522C9 /* AppDelegate.swift in Sources */,
 				D42E49ED24D09737005522C9 /* SceneDelegate.swift in Sources */,
 				D42E4A2324D09989005522C9 /* Initial.swift in Sources */,
 				D42E49F224D09737005522C9 /* ContentView.swift in Sources */,
-				D42E4A2124D097E3005522C9 /* ReminderList.swift in Sources */,
 				D42E49F024D09737005522C9 /* Reminder.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

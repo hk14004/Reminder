@@ -22,9 +22,10 @@ struct Initial: View {
             
             Tiles()
             
-            Spacer()
-            Text(searchText)
-            Spacer()
+            MyReminderLists()
+            
+            AddList()
+            
         }.background(Color(hex: "F2F2F7").edgesIgnoringSafeArea(.top))
     }
 }
@@ -100,7 +101,7 @@ struct AllTile: View {
         HStack() {
             VStack() {
                 HStack() {
-                    Image(systemName: "tray.fill").resizable().aspectRatio(contentMode: .fit).frame(width:30, height:35).foregroundColor(.gray)
+                    Image(systemName: "tray.fill").resizable().aspectRatio(contentMode: .fit).frame(width:20, height:20).foregroundColor(.white).padding(8).background(Color(hex: "5B626A")).cornerRadius(30)
                     
                     Spacer()
                     Text("0").font(.largeTitle).bold()
@@ -111,7 +112,36 @@ struct AllTile: View {
                     Spacer()
                 }.padding(5).padding(.top, -5).background(Color.white)
                 
-            }.background(Color.white).cornerRadius(10).padding(.leading, 10).padding(.trailing, 5)
+            }.background(Color.white).cornerRadius(10).padding(.leading, 10).padding(.trailing, 10)
         }.animation(.default)
+    }
+}
+
+struct MyReminderLists: View {
+    var body: some View {
+        VStack() {
+            HStack() {
+                Text("My Lists").font(.title).bold().padding(.leading, 10)
+                Spacer()
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Text("UPGRADE").font(.caption).bold().foregroundColor(Color.white).padding(5).padding(.leading, 10).padding(.trailing, 10).background(Color.blue).cornerRadius(20)
+                }
+            }.padding(.bottom, -15)
+            List() {
+                MyListsCell(reminderList: ReminderList(name: "Reminders", color: .red)).padding(.leading, -5)
+            }.cornerRadius(10).animation(.default)
+            
+        }.padding(.leading, 10).padding(.trailing, 10).padding(.top, 15).padding(.bottom, -15).animation(.default)
+    }
+}
+
+struct AddList: View {
+    var body: some View {
+        HStack() {
+            Spacer()
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Text("Add list")
+            }
+        }.background(Color(hex: "F2F2F7").edgesIgnoringSafeArea(.bottom)).padding(10).padding(.top, 10)
     }
 }
