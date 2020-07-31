@@ -17,7 +17,7 @@ struct MyListsCell: View {
             Text("\(reminderList.name)")
             Spacer()
             Text("\(reminderList.reminders.count)")
-        }
+        }.listRowBackground(Color("CustomForeground"))
     }
 }
 

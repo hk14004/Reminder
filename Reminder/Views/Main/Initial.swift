@@ -26,7 +26,7 @@ struct Initial: View {
             
             AddList()
             
-        }.background(Color(hex: "F2F2F7").edgesIgnoringSafeArea(.top))
+        }.background(Color("CustomBackground").edgesIgnoringSafeArea(.top))
     }
 }
 
@@ -41,7 +41,7 @@ struct ToolBar: View {
         HStack() {
             Spacer()
             EditButton().padding([.top, .trailing]).padding(.bottom, -15)
-        }.background(Color(hex: "F2F2F7").edgesIgnoringSafeArea(.top))
+        }.background(Color("CustomBackground").edgesIgnoringSafeArea(.top))
     }
 }
 
@@ -62,18 +62,18 @@ struct TodayTile: View {
     var body: some View {
         VStack() {
             HStack() {
-                Image(systemName: "calendar.circle.fill").resizable().frame(width:35, height:35).foregroundColor(.blue)
+                Image(systemName: "calendar.circle.fill").resizable().frame(width:35, height:35).foregroundColor(.blue).background(Color.white.cornerRadius(30))
                 
                 Spacer()
                 Text("0").font(.largeTitle).bold()
-            }.padding(5).padding(.bottom, -10).padding(.leading, 5).background(Color.white)
+            }.padding(5).padding(.bottom, -10).padding(.leading, 5).background(Color("CustomForeground"))
             
             HStack {
-                Text("Today").foregroundColor(Color(hex: "87878C")).bold().padding(.leading, 5)
+                Text("Today").foregroundColor(Color(UIColor.systemGray)).bold().padding(.leading, 5)
                 Spacer()
-            }.padding(5).padding(.top, -5).background(Color.white)
+            }.padding(5).padding(.top, -5).background(Color("CustomForeground"))
             
-        }.background(Color.white).cornerRadius(10).padding(.leading, 10).padding(.trailing, 5)
+        }.background(Color("CustomForeground")).cornerRadius(10).padding(.leading, 10).padding(.trailing, 5)
     }
 }
 
@@ -83,16 +83,16 @@ struct ScheduledTile: View {
             HStack() {
                 
                 Image(systemName: "clock").resizable().frame(width:25, height:25).foregroundColor(.orange).overlay(RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.orange, lineWidth: 7))
+                    .stroke(Color.orange, lineWidth: 7)).background(Color.white.cornerRadius(30))
                 Spacer()
                 Text("0").font(.largeTitle).bold()
-            }.padding(5).padding(.bottom, -10).padding(.leading, 7).background(Color.white)
+            }.padding(5).padding(.bottom, -10).padding(.leading, 7).background(Color("CustomForeground"))
             HStack {
-                Text("Scheduled").foregroundColor(Color(hex: "87878C")).bold().padding(.leading, 5)
+                Text("Scheduled").foregroundColor(Color(UIColor.systemGray)).bold().padding(.leading, 5)
                 Spacer()
-            }.padding(5).padding(.top, -5).background(Color.white)
+            }.padding(5).padding(.top, -5).background(Color("CustomForeground"))
             
-        }.background(Color.white).cornerRadius(10).padding(.trailing, 10).padding(.leading, 5)
+        }.background(Color("CustomForeground")).cornerRadius(10).padding(.trailing, 10).padding(.leading, 5)
     }
 }
 
@@ -105,14 +105,14 @@ struct AllTile: View {
                     
                     Spacer()
                     Text("0").font(.largeTitle).bold()
-                }.padding(5).padding(.bottom, -10).padding(.leading, 5).background(Color.white)
+                }.padding(5).padding(.bottom, -10).padding(.leading, 5).background(Color("CustomForeground"))
                 
                 HStack {
-                    Text("All").foregroundColor(Color(hex: "87878C")).bold().padding(.leading, 5)
+                    Text("All").foregroundColor(Color(UIColor.systemGray)).bold().padding(.leading, 5)
                     Spacer()
-                }.padding(5).padding(.top, -5).background(Color.white)
+                }.padding(5).padding(.top, -5).background(Color("CustomForeground"))
                 
-            }.background(Color.white).cornerRadius(10).padding(.leading, 10).padding(.trailing, 10)
+            }.background(Color("CustomForeground")).cornerRadius(10).padding(.leading, 10).padding(.trailing, 10)
         }.animation(.default)
     }
 }
@@ -120,13 +120,17 @@ struct AllTile: View {
 struct MyReminderLists: View {
     @State var reminderList = testData
     
+    init() {
+        UITableView.appearance().backgroundColor = UIColor(named: "CustomForeground")
+    }
+    
     var body: some View {
         VStack() {
             HStack() {
                 Text("My Lists").font(.title).bold().padding(.leading, 10)
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("UPGRADE").font(.caption).bold().foregroundColor(Color.white).padding(5).padding(.leading, 10).padding(.trailing, 10).background(Color.blue).cornerRadius(20)
+                    Text("UPGRADE").font(.caption).bold().foregroundColor(Color("CustomForeground")).padding(5).padding(.leading, 10).padding(.trailing, 10).background(Color.blue).cornerRadius(20)
                 }
             }.padding(.bottom, -15)
             
@@ -135,7 +139,7 @@ struct MyReminderLists: View {
                     ForEach(reminderList) { reminderList in
                         MyListsCell(reminderList: reminderList).padding(.leading, -5)
                     }.onDelete(perform: delete)
-                }.cornerRadius(10).animation(.default)
+                }.animation(.default).cornerRadius(10)
             } else {
                 Spacer()
             }
@@ -155,6 +159,6 @@ struct AddList: View {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                 Text("Add list")
             }
-        }.background(Color(hex: "F2F2F7").edgesIgnoringSafeArea(.bottom)).padding(10).padding(.top, 10)
+        }.background(Color("CustomBackground").edgesIgnoringSafeArea(.bottom)).padding(10).padding(.top, 10)
     }
 }

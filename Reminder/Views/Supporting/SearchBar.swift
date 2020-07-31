@@ -20,7 +20,7 @@ struct SearchBar: View {
                 Image(systemName: "xmark.circle.fill").resizable().frame(width: 15,height: 15).foregroundColor(.gray).opacity(searchText.isEmpty ? 0 : 1).onTapGesture {
                     self.searchText = ""
                 }
-            }.padding(7).background(Color(hex: "E3E3E9")).cornerRadius(8).onTapGesture {
+            }.padding(7).background(!isEditing ? Color("CustomForeground") : Color(UIColor.systemGray5)).cornerRadius(8).onTapGesture {
                 self.isEditing = true
             }.animation(.default)
             
@@ -34,7 +34,7 @@ struct SearchBar: View {
                     Text("Cancel")
                 }.animation(.default)
             }
-        }.padding(15).padding(.top, isEditing ? 10 : 0).background(isEditing ? Color.white : Color.white.opacity(0)).edgesIgnoringSafeArea(.top).animation(.interactiveSpring())
+        }.padding(15).padding(.top, isEditing ? 10 : 0).background(isEditing ? Color("CustomForeground") : Color("CustomForeground").opacity(0)).edgesIgnoringSafeArea(.top).animation(.interactiveSpring())
     }
 }
 
