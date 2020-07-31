@@ -8,3 +8,6 @@
 
 ## Add reminder to list
 <img src="IMG/img3.png" height="700" alt="">
+
+## DarkMode support
+<img src="IMG/img4.png" height="700" alt="">
