@@ -125,7 +125,7 @@ struct MyReminderLists: View {
             NSSortDescriptor(keyPath: \ReminderList.name, ascending: true),
             NSSortDescriptor(keyPath: \ReminderList.iconColor, ascending: false)
         ]
-    ) var reminderList: FetchedResults<ReminderList>
+    ) var reminderListArray: FetchedResults<ReminderList>
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(named: "CustomForeground")
@@ -141,9 +141,9 @@ struct MyReminderLists: View {
                 }
             }.padding(.bottom, -15)
             
-            if !reminderList.isEmpty {
+            if !reminderListArray.isEmpty {
                 List() {
-                    ForEach(reminderList, id: \.self) { reminderList in
+                    ForEach(reminderListArray, id: \.self) { reminderList in
                         MyListsCell(reminderList: reminderList).padding(.leading, -5)
                     }.onDelete(perform: delete)
                 }.animation(.default).cornerRadius(10)
@@ -155,8 +155,8 @@ struct MyReminderLists: View {
     
     func delete(at offsets: IndexSet) {
         for index in offsets {
-            let language = reminderList[index]
-            managedObjectContext.delete(language)
+            let reminderList = reminderListArray[index]
+            managedObjectContext.delete(reminderList)
         }
     }
 }
