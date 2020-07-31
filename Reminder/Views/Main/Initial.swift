@@ -118,7 +118,14 @@ struct AllTile: View {
 }
 
 struct MyReminderLists: View {
-    @State var reminderList = testData
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(
+        entity: ReminderList.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \ReminderList.name, ascending: true),
+            NSSortDescriptor(keyPath: \ReminderList.iconColor, ascending: false)
+        ]
+    ) var reminderList: FetchedResults<ReminderList>
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(named: "CustomForeground")
@@ -136,29 +143,45 @@ struct MyReminderLists: View {
             
             if !reminderList.isEmpty {
                 List() {
-                    ForEach(reminderList) { reminderList in
+                    ForEach(reminderList, id: \.self) { reminderList in
                         MyListsCell(reminderList: reminderList).padding(.leading, -5)
                     }.onDelete(perform: delete)
                 }.animation(.default).cornerRadius(10)
             } else {
                 Spacer()
             }
-            
         }.padding(.leading, 10).padding(.trailing, 10).padding(.top, 15).padding(.bottom, -15).animation(.default)
     }
     
     func delete(at offsets: IndexSet) {
-        reminderList.remove(atOffsets: offsets)
+        for index in offsets {
+            let language = reminderList[index]
+            managedObjectContext.delete(language)
+        }
     }
 }
 
 struct AddList: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     var body: some View {
         HStack() {
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Button(action: {
+                let list = ReminderList(context: self.managedObjectContext)
+                list.name = "CoreData \(Date())"
+                list.iconColor = 3
+            }) {
                 Text("Add list")
             }
         }.background(Color("CustomBackground").edgesIgnoringSafeArea(.bottom)).padding(10).padding(.top, 10)
+    }
+    
+    func save() {
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            // TODO: Display alert
+        }
     }
 }

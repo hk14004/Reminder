@@ -13,23 +13,16 @@ struct MyListsCell: View {
     
     var body: some View {
         HStack() {
-            Image(systemName: "list.bullet").resizable().frame(width:12, height: 12).aspectRatio(contentMode: .fit).foregroundColor(Color.white).padding(10).background(reminderList.color).cornerRadius(25)
-            Text("\(reminderList.name)")
+            Image(systemName: "list.bullet").resizable().frame(width:12, height: 12).aspectRatio(contentMode: .fit).foregroundColor(Color.white).padding(10).background(COLORS[Int(reminderList.iconColor)]).cornerRadius(25)
+            Text("\(reminderList.name ?? "")")
             Spacer()
-            Text("\(reminderList.reminders.count)")
+            Text("TODO")
         }.listRowBackground(Color("CustomForeground"))
     }
 }
 
 struct MyListsCell_Previews: PreviewProvider {
     static var previews: some View {
-        MyListsCell(reminderList: ReminderList(id: 0, name: "Reminders", color: .red))
+        MyListsCell(reminderList: ReminderList())
     }
-}
-
-struct ReminderList: Identifiable {
-    var id: Int
-    var name: String
-    var color: Color
-    var reminders: [String] = [""]
 }
