@@ -1,6 +1,10 @@
-# Reminder
-Reminder is a iOS 13.0 Reminder app clone.
+# iOS 13.0 Reminder App Clone
 
-![Screenshot1](https://github.com/hk14004/Reminder/blob/master/IMG/img1.png)
-![Screenshot2](https://github.com/hk14004/Reminder/blob/master/IMG/img2.png)
-![Screenshot3](https://github.com/hk14004/Reminder/blob/master/IMG/img3.png)
+## Main view
+<img src="IMG/img1.png" height="700" alt="">
+
+## Create reminder list
+<img src="IMG/img2.png" height="700" alt="">
+
+## Add reminder to list
+<img src="IMG/img3.png" height="700" alt="">
