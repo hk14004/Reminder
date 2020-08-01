@@ -10,7 +10,6 @@
 		D42E49EB24D09737005522C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E49EA24D09737005522C9 /* AppDelegate.swift */; };
 		D42E49ED24D09737005522C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E49EC24D09737005522C9 /* SceneDelegate.swift */; };
 		D42E49F024D09737005522C9 /* Reminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D42E49EE24D09737005522C9 /* Reminder.xcdatamodeld */; };
-		D42E49F224D09737005522C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E49F124D09737005522C9 /* ContentView.swift */; };
 		D42E49F424D0973C005522C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42E49F324D0973C005522C9 /* Assets.xcassets */; };
 		D42E49F724D0973C005522C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42E49F624D0973C005522C9 /* Preview Assets.xcassets */; };
 		D42E49FA24D0973C005522C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42E49F824D0973C005522C9 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,10 @@
 		D42E4A1024D0973C005522C9 /* ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A0F24D0973C005522C9 /* ReminderUITests.swift */; };
 		D42E4A2324D09989005522C9 /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2224D09989005522C9 /* Initial.swift */; };
 		D42E4A2524D09A97005522C9 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2424D09A97005522C9 /* SearchBar.swift */; };
+		D4653CCA24D59CE400399D12 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CC924D59CE400399D12 /* ToolBar.swift */; };
+		D4653CCC24D59D4100399D12 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCB24D59D4100399D12 /* Tiles.swift */; };
+		D4653CCE24D59DDA00399D12 /* MyReminderLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCD24D59DDA00399D12 /* MyReminderLists.swift */; };
+		D4653CD024D59E1400399D12 /* AddList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCF24D59E1400399D12 /* AddList.swift */; };
 		D4E7A99724D3429F00275290 /* MyListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99624D3429F00275290 /* MyListsCell.swift */; };
 		D4E7A99924D36C2300275290 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99824D36C2300275290 /* Constants.swift */; };
 		D4E7A99B24D36E0100275290 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99A24D36E0100275290 /* Extensions.swift */; };
@@ -45,7 +48,6 @@
 		D42E49EA24D09737005522C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42E49EC24D09737005522C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D42E49EF24D09737005522C9 /* Reminder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reminder.xcdatamodel; sourceTree = "<group>"; };
-		D42E49F124D09737005522C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D42E49F324D0973C005522C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D42E49F624D0973C005522C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D42E49F924D0973C005522C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,10 @@
 		D42E4A1124D0973C005522C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D42E4A2224D09989005522C9 /* Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial.swift; sourceTree = "<group>"; };
 		D42E4A2424D09A97005522C9 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		D4653CC924D59CE400399D12 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+		D4653CCB24D59D4100399D12 /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
+		D4653CCD24D59DDA00399D12 /* MyReminderLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReminderLists.swift; sourceTree = "<group>"; };
+		D4653CCF24D59E1400399D12 /* AddList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddList.swift; sourceTree = "<group>"; };
 		D4E7A99624D3429F00275290 /* MyListsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsCell.swift; sourceTree = "<group>"; };
 		D4E7A99824D36C2300275290 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4E7A99A24D36E0100275290 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -117,7 +123,6 @@
 				D4E7A99A24D36E0100275290 /* Extensions.swift */,
 				D4E7A99824D36C2300275290 /* Constants.swift */,
 				D42E49EC24D09737005522C9 /* SceneDelegate.swift */,
-				D42E49F124D09737005522C9 /* ContentView.swift */,
 				D42E49F324D0973C005522C9 /* Assets.xcassets */,
 				D42E49F824D0973C005522C9 /* LaunchScreen.storyboard */,
 				D42E49FB24D0973C005522C9 /* Info.plist */,
@@ -156,18 +161,9 @@
 		D42E4A1D24D09794005522C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D42E4A1E24D097A2005522C9 /* Main */,
-				D42E4A1F24D097B0005522C9 /* Supporting */,
+				D4653CC824D59C4000399D12 /* Initial */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D42E4A1E24D097A2005522C9 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				D42E4A2224D09989005522C9 /* Initial.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		D42E4A1F24D097B0005522C9 /* Supporting */ = {
@@ -175,6 +171,10 @@
 			children = (
 				D42E4A2424D09A97005522C9 /* SearchBar.swift */,
 				D4E7A99624D3429F00275290 /* MyListsCell.swift */,
+				D4653CC924D59CE400399D12 /* ToolBar.swift */,
+				D4653CCB24D59D4100399D12 /* Tiles.swift */,
+				D4653CCD24D59DDA00399D12 /* MyReminderLists.swift */,
+				D4653CCF24D59E1400399D12 /* AddList.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -184,6 +184,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D4653CC824D59C4000399D12 /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				D42E4A2224D09989005522C9 /* Initial.swift */,
+				D42E4A1F24D097B0005522C9 /* Supporting */,
+			);
+			path = Initial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,12 +329,15 @@
 				D42E4A2524D09A97005522C9 /* SearchBar.swift in Sources */,
 				D4E7A99B24D36E0100275290 /* Extensions.swift in Sources */,
 				D4E7A99724D3429F00275290 /* MyListsCell.swift in Sources */,
+				D4653CCC24D59D4100399D12 /* Tiles.swift in Sources */,
 				D42E49EB24D09737005522C9 /* AppDelegate.swift in Sources */,
 				D42E49ED24D09737005522C9 /* SceneDelegate.swift in Sources */,
 				D42E4A2324D09989005522C9 /* Initial.swift in Sources */,
-				D42E49F224D09737005522C9 /* ContentView.swift in Sources */,
+				D4653CD024D59E1400399D12 /* AddList.swift in Sources */,
+				D4653CCA24D59CE400399D12 /* ToolBar.swift in Sources */,
 				D42E49F024D09737005522C9 /* Reminder.xcdatamodeld in Sources */,
 				D4E7A99924D36C2300275290 /* Constants.swift in Sources */,
+				D4653CCE24D59DDA00399D12 /* MyReminderLists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
