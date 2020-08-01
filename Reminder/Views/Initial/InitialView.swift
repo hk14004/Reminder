@@ -24,7 +24,7 @@ struct InitialView: View {
             
             MyReminderListsView()
             
-            AddListView()
+            AddListToolBarView()
             
         }.background(Color("CustomBackground").edgesIgnoringSafeArea(.top))
     }
