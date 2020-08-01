@@ -8,15 +8,15 @@
 
 import SwiftUI
 
-struct MyReminderLists: View {
+struct MyReminderListsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(
-        entity: ReminderList.entity(),
+        entity: ReminderListEntity.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \ReminderList.name, ascending: true),
-            NSSortDescriptor(keyPath: \ReminderList.iconColor, ascending: false)
+            NSSortDescriptor(keyPath: \ReminderListEntity.name, ascending: true),
+            NSSortDescriptor(keyPath: \ReminderListEntity.iconColor, ascending: false)
         ]
-    ) var reminderListArray: FetchedResults<ReminderList>
+    ) var reminderListArray: FetchedResults<ReminderListEntity>
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(named: "CustomForeground")
@@ -35,7 +35,7 @@ struct MyReminderLists: View {
             if !reminderListArray.isEmpty {
                 List() {
                     ForEach(self.reminderListArray, id: \.self) { reminderList in
-                        MyListsCell(reminderList: reminderList).padding(.leading, -5)
+                        MyListsCellView(reminderList: reminderList).padding(.leading, -5)
                     }.onDelete(perform: self.delete)
                 }.animation(.default).cornerRadius(10).frame(height: CGFloat( self.reminderListArray.count * 44))
                 
@@ -53,9 +53,8 @@ struct MyReminderLists: View {
     }
 }
 
-
-struct MyReminderLists_Previews: PreviewProvider {
+struct MyReminderListsView_Previews: PreviewProvider {
     static var previews: some View {
-        MyReminderLists()
+        MyReminderListsView()
     }
 }

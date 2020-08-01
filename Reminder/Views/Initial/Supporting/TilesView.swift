@@ -8,20 +8,20 @@
 
 import SwiftUI
 
-struct Tiles: View {
+struct TilesView: View {
     var body: some View {
         VStack() {
             HStack() {
-                TodayTile()
-                ScheduledTile()
+                TodayTileView()
+                ScheduledTileView()
             }.animation(.default)
             
-            AllTile()
+            AllTileView()
         }
     }
 }
 
-struct TodayTile: View {
+struct TodayTileView: View {
     var body: some View {
         VStack() {
             HStack() {
@@ -40,7 +40,7 @@ struct TodayTile: View {
     }
 }
 
-struct ScheduledTile: View {
+struct ScheduledTileView: View {
     var body: some View {
         VStack() {
             HStack() {
@@ -59,7 +59,7 @@ struct ScheduledTile: View {
     }
 }
 
-struct AllTile: View {
+struct AllTileView: View {
     var body: some View {
         HStack() {
             VStack() {
@@ -82,6 +82,6 @@ struct AllTile: View {
 
 struct Tiles_Previews: PreviewProvider {
     static var previews: some View {
-        Tiles()
+        TilesView()
     }
 }

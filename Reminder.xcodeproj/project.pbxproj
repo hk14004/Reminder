@@ -15,13 +15,13 @@
 		D42E49FA24D0973C005522C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42E49F824D0973C005522C9 /* LaunchScreen.storyboard */; };
 		D42E4A0524D0973C005522C9 /* ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A0424D0973C005522C9 /* ReminderTests.swift */; };
 		D42E4A1024D0973C005522C9 /* ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A0F24D0973C005522C9 /* ReminderUITests.swift */; };
-		D42E4A2324D09989005522C9 /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2224D09989005522C9 /* Initial.swift */; };
-		D42E4A2524D09A97005522C9 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2424D09A97005522C9 /* SearchBar.swift */; };
-		D4653CCA24D59CE400399D12 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CC924D59CE400399D12 /* ToolBar.swift */; };
-		D4653CCC24D59D4100399D12 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCB24D59D4100399D12 /* Tiles.swift */; };
-		D4653CCE24D59DDA00399D12 /* MyReminderLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCD24D59DDA00399D12 /* MyReminderLists.swift */; };
-		D4653CD024D59E1400399D12 /* AddList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCF24D59E1400399D12 /* AddList.swift */; };
-		D4E7A99724D3429F00275290 /* MyListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99624D3429F00275290 /* MyListsCell.swift */; };
+		D42E4A2324D09989005522C9 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2224D09989005522C9 /* InitialView.swift */; };
+		D42E4A2524D09A97005522C9 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2424D09A97005522C9 /* SearchBarView.swift */; };
+		D4653CCA24D59CE400399D12 /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CC924D59CE400399D12 /* ToolBarView.swift */; };
+		D4653CCC24D59D4100399D12 /* TilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCB24D59D4100399D12 /* TilesView.swift */; };
+		D4653CCE24D59DDA00399D12 /* MyReminderListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCD24D59DDA00399D12 /* MyReminderListsView.swift */; };
+		D4653CD024D59E1400399D12 /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCF24D59E1400399D12 /* AddListView.swift */; };
+		D4E7A99724D3429F00275290 /* MyListsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99624D3429F00275290 /* MyListsCellView.swift */; };
 		D4E7A99924D36C2300275290 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99824D36C2300275290 /* Constants.swift */; };
 		D4E7A99B24D36E0100275290 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A99A24D36E0100275290 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -58,13 +58,13 @@
 		D42E4A0B24D0973C005522C9 /* ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42E4A0F24D0973C005522C9 /* ReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUITests.swift; sourceTree = "<group>"; };
 		D42E4A1124D0973C005522C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D42E4A2224D09989005522C9 /* Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial.swift; sourceTree = "<group>"; };
-		D42E4A2424D09A97005522C9 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		D4653CC924D59CE400399D12 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
-		D4653CCB24D59D4100399D12 /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
-		D4653CCD24D59DDA00399D12 /* MyReminderLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReminderLists.swift; sourceTree = "<group>"; };
-		D4653CCF24D59E1400399D12 /* AddList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddList.swift; sourceTree = "<group>"; };
-		D4E7A99624D3429F00275290 /* MyListsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsCell.swift; sourceTree = "<group>"; };
+		D42E4A2224D09989005522C9 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		D42E4A2424D09A97005522C9 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		D4653CC924D59CE400399D12 /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
+		D4653CCB24D59D4100399D12 /* TilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesView.swift; sourceTree = "<group>"; };
+		D4653CCD24D59DDA00399D12 /* MyReminderListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReminderListsView.swift; sourceTree = "<group>"; };
+		D4653CCF24D59E1400399D12 /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
+		D4E7A99624D3429F00275290 /* MyListsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsCellView.swift; sourceTree = "<group>"; };
 		D4E7A99824D36C2300275290 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4E7A99A24D36E0100275290 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,12 +169,12 @@
 		D42E4A1F24D097B0005522C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				D42E4A2424D09A97005522C9 /* SearchBar.swift */,
-				D4E7A99624D3429F00275290 /* MyListsCell.swift */,
-				D4653CC924D59CE400399D12 /* ToolBar.swift */,
-				D4653CCB24D59D4100399D12 /* Tiles.swift */,
-				D4653CCD24D59DDA00399D12 /* MyReminderLists.swift */,
-				D4653CCF24D59E1400399D12 /* AddList.swift */,
+				D42E4A2424D09A97005522C9 /* SearchBarView.swift */,
+				D4E7A99624D3429F00275290 /* MyListsCellView.swift */,
+				D4653CC924D59CE400399D12 /* ToolBarView.swift */,
+				D4653CCB24D59D4100399D12 /* TilesView.swift */,
+				D4653CCD24D59DDA00399D12 /* MyReminderListsView.swift */,
+				D4653CCF24D59E1400399D12 /* AddListView.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 		D4653CC824D59C4000399D12 /* Initial */ = {
 			isa = PBXGroup;
 			children = (
-				D42E4A2224D09989005522C9 /* Initial.swift */,
+				D42E4A2224D09989005522C9 /* InitialView.swift */,
 				D42E4A1F24D097B0005522C9 /* Supporting */,
 			);
 			path = Initial;
@@ -326,18 +326,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42E4A2524D09A97005522C9 /* SearchBar.swift in Sources */,
+				D42E4A2524D09A97005522C9 /* SearchBarView.swift in Sources */,
 				D4E7A99B24D36E0100275290 /* Extensions.swift in Sources */,
-				D4E7A99724D3429F00275290 /* MyListsCell.swift in Sources */,
-				D4653CCC24D59D4100399D12 /* Tiles.swift in Sources */,
+				D4E7A99724D3429F00275290 /* MyListsCellView.swift in Sources */,
+				D4653CCC24D59D4100399D12 /* TilesView.swift in Sources */,
 				D42E49EB24D09737005522C9 /* AppDelegate.swift in Sources */,
 				D42E49ED24D09737005522C9 /* SceneDelegate.swift in Sources */,
-				D42E4A2324D09989005522C9 /* Initial.swift in Sources */,
-				D4653CD024D59E1400399D12 /* AddList.swift in Sources */,
-				D4653CCA24D59CE400399D12 /* ToolBar.swift in Sources */,
+				D42E4A2324D09989005522C9 /* InitialView.swift in Sources */,
+				D4653CD024D59E1400399D12 /* AddListView.swift in Sources */,
+				D4653CCA24D59CE400399D12 /* ToolBarView.swift in Sources */,
 				D42E49F024D09737005522C9 /* Reminder.xcdatamodeld in Sources */,
 				D4E7A99924D36C2300275290 /* Constants.swift in Sources */,
-				D4653CCE24D59DDA00399D12 /* MyReminderLists.swift in Sources */,
+				D4653CCE24D59DDA00399D12 /* MyReminderListsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

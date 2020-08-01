@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ToolBar: View {
+struct ToolBarView: View {
     var body: some View {
         HStack() {
             Spacer()
@@ -19,6 +19,6 @@ struct ToolBar: View {
 
 struct ToolBar_Previews: PreviewProvider {
     static var previews: some View {
-        ToolBar()
+        ToolBarView()
     }
 }

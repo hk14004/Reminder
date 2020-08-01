@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct MyListsCell: View {
-    @State var reminderList: ReminderList
+struct MyListsCellView: View {
+    @State var reminderList: ReminderListEntity
     
     var body: some View {
         HStack() {
@@ -23,6 +23,6 @@ struct MyListsCell: View {
 
 struct MyListsCell_Previews: PreviewProvider {
     static var previews: some View {
-        MyListsCell(reminderList: ReminderList())
+        MyListsCellView(reminderList: ReminderListEntity())
     }
 }

@@ -8,23 +8,23 @@
 
 import SwiftUI
 
-struct Initial: View {
+struct InitialView: View {
     @State var searchText: String = ""
     @State var isSearching: Bool = false
     var body: some View {
         VStack() {
             
             if !isSearching {
-                ToolBar()
+                ToolBarView()
             }
             
-            SearchBar(searchText: $searchText, isEditing: $isSearching)
+            SearchBarView(searchText: $searchText, isEditing: $isSearching)
             
-            Tiles()
+            TilesView()
             
-            MyReminderLists()
+            MyReminderListsView()
             
-            AddList()
+            AddListView()
             
         }.background(Color("CustomBackground").edgesIgnoringSafeArea(.top))
     }
@@ -32,6 +32,6 @@ struct Initial: View {
 
 struct Initial_Previews: PreviewProvider {
     static var previews: some View {
-        Initial()
+        InitialView()
     }
 }
