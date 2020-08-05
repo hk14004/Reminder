@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddReminderListPopoverView: View {
     @State var chosenColor: Int = 0
@@ -71,10 +72,12 @@ struct NewListPopoverToolBar: View {
             Text("New List").bold()
             Spacer()
             Button(action: {
+                let orderPriority = self.getLastID() + 1
                 let list = ReminderListEntity(context: self.managedObjectContext)
                 list.name = self.chosenName
                 list.iconColor = Int32(self.chosenColor)
                 list.id = UUID()
+                list.orderPriority = orderPriority
                 self.save()
                 self.popoverVisible = false
                 self.chosenName = ""
@@ -92,6 +95,23 @@ struct NewListPopoverToolBar: View {
         } catch {
             print("Save failed \(error.localizedDescription)")
             // TODO: Display alert
+        }
+    }
+    
+    private func getLastID() -> Int64 {
+        let fetchRequest = NSFetchRequest<ReminderListEntity>(entityName: "ReminderListEntity")
+        
+        fetchRequest.fetchLimit = 1
+        let sortDescriptor = NSSortDescriptor(key: "orderPriority", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            let list = try managedObjectContext.fetch(fetchRequest)
+            print(list)
+            return list.count == 0 ? 0 : list[0].orderPriority
+        } catch let error as NSError {
+            // failure
+            print("Fetch failed: \(error.localizedDescription)")
+            return 0
         }
     }
 }

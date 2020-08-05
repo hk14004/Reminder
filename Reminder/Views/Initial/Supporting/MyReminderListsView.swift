@@ -7,14 +7,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MyReminderListsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(
         entity: ReminderListEntity.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \ReminderListEntity.name, ascending: true),
-            NSSortDescriptor(keyPath: \ReminderListEntity.iconColor, ascending: false)
+            NSSortDescriptor(keyPath: \ReminderListEntity.orderPriority, ascending: true),
         ]
     ) var reminderListArray: FetchedResults<ReminderListEntity>
     
@@ -36,13 +36,25 @@ struct MyReminderListsView: View {
                 List() {
                     ForEach(self.reminderListArray, id: \.self) { reminderList in
                         MyListsCellView(reminderList: reminderList).padding(.leading, -5)
-                    }.onDelete(perform: self.delete)
+                    }.onDelete(perform: self.delete).onMove(perform: move)
                 }.animation(.default).cornerRadius(10).frame(height: CGFloat( self.reminderListArray.count * 44))
                 
             }
             Spacer()
             
         }.padding(.leading, 10).padding(.trailing, 10).padding(.top, 15).padding(.bottom, -15).animation(.default)
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        var orderedArray: [ReminderListEntity] = reminderListArray.map {$0}
+        orderedArray.move(fromOffsets: source, toOffset: destination)
+
+        for i in 0..<orderedArray.count {
+            let saved = reminderListArray.first { $0.id == orderedArray[i].id }
+            saved?.orderPriority = Int64(i)
+        }
+
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     func delete(at offsets: IndexSet) {
