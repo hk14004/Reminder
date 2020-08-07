@@ -18,6 +18,8 @@
 		D42E4A1024D0973C005522C9 /* ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A0F24D0973C005522C9 /* ReminderUITests.swift */; };
 		D42E4A2324D09989005522C9 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2224D09989005522C9 /* InitialView.swift */; };
 		D42E4A2524D09A97005522C9 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E4A2424D09A97005522C9 /* SearchBarView.swift */; };
+		D435441C24DB40F400ED5C85 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435441B24DB40F400ED5C85 /* AddReminderView.swift */; };
+		D4396CF124DB56A6004E2320 /* NavigationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4396CF024DB56A6004E2320 /* NavigationModifier.swift */; };
 		D4653CCA24D59CE400399D12 /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CC924D59CE400399D12 /* ToolBarView.swift */; };
 		D4653CCC24D59D4100399D12 /* TilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCB24D59D4100399D12 /* TilesView.swift */; };
 		D4653CCE24D59DDA00399D12 /* MyReminderListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4653CCD24D59DDA00399D12 /* MyReminderListsView.swift */; };
@@ -62,6 +64,8 @@
 		D42E4A1124D0973C005522C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D42E4A2224D09989005522C9 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		D42E4A2424D09A97005522C9 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		D435441B24DB40F400ED5C85 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		D4396CF024DB56A6004E2320 /* NavigationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModifier.swift; sourceTree = "<group>"; };
 		D4653CC924D59CE400399D12 /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
 		D4653CCB24D59D4100399D12 /* TilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesView.swift; sourceTree = "<group>"; };
 		D4653CCD24D59DDA00399D12 /* MyReminderListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReminderListsView.swift; sourceTree = "<group>"; };
@@ -119,7 +123,6 @@
 		D42E49E924D09737005522C9 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				D430BC2424D482B0001D682E /* Models */,
 				D42E4A1D24D09794005522C9 /* Views */,
 				D42E49EA24D09737005522C9 /* AppDelegate.swift */,
 				D4E7A99A24D36E0100275290 /* Extensions.swift */,
@@ -163,7 +166,9 @@
 		D42E4A1D24D09794005522C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D435441A24DB40C700ED5C85 /* AddReminder */,
 				D4653CC824D59C4000399D12 /* Initial */,
+				D44F795E24DDB6160062118B /* Modifiers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,11 +187,20 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		D430BC2424D482B0001D682E /* Models */ = {
+		D435441A24DB40C700ED5C85 /* AddReminder */ = {
 			isa = PBXGroup;
 			children = (
+				D435441B24DB40F400ED5C85 /* AddReminderView.swift */,
 			);
-			path = Models;
+			path = AddReminder;
+			sourceTree = "<group>";
+		};
+		D44F795E24DDB6160062118B /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D4396CF024DB56A6004E2320 /* NavigationModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		D4653CC824D59C4000399D12 /* Initial */ = {
@@ -336,7 +350,9 @@
 				D4653CCC24D59D4100399D12 /* TilesView.swift in Sources */,
 				D42E49EB24D09737005522C9 /* AppDelegate.swift in Sources */,
 				D42E49ED24D09737005522C9 /* SceneDelegate.swift in Sources */,
+				D4396CF124DB56A6004E2320 /* NavigationModifier.swift in Sources */,
 				D42E4A2324D09989005522C9 /* InitialView.swift in Sources */,
+				D435441C24DB40F400ED5C85 /* AddReminderView.swift in Sources */,
 				D4653CD024D59E1400399D12 /* AddListToolBarView.swift in Sources */,
 				D4653CCA24D59CE400399D12 /* ToolBarView.swift in Sources */,
 				D42E49F024D09737005522C9 /* Reminder.xcdatamodeld in Sources */,

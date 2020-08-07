@@ -12,21 +12,24 @@ struct InitialView: View {
     @State var searchText: String = ""
     @State var isSearching: Bool = false
     var body: some View {
-        VStack() {
-            
-            if !isSearching {
-                ToolBarView()
-            }
-            
-            SearchBarView(searchText: $searchText, isEditing: $isSearching)
-            
-            TilesView()
-            
-            MyReminderListsView()
-            
-            AddListToolBarView()
-            
-        }.background(Color("CustomBackground").edgesIgnoringSafeArea(.top))
+        NavigationView {
+            VStack() {
+                
+                if !isSearching {
+                    ToolBarView()
+                }
+                
+                SearchBarView(searchText: $searchText, isEditing: $isSearching)
+                
+                TilesView()
+                
+                MyReminderListsView()
+                
+                AddListToolBarView()
+            }.background(Color("CustomBackground")).navigationBarTitle("Lists")
+                .navigationBarHidden(true)
+        }
+        
     }
 }
 
