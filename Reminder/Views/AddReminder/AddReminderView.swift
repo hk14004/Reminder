@@ -46,7 +46,7 @@ struct AddReminderView: View {
                     if addingNewReminder {
                         NewReminderCellView(reminderText: $newReminderText, completed: $completeReminder, reminderColor: COLORS[Int(reminderList.iconColor)], addingNewReminder: $addingNewReminder, reminderList: reminderList).animation(.none)
                     }
-                }.frame(height: CGFloat( self.reminderArray.count * 50 + (addingNewReminder ? 50 : 0)))
+                }.frame(height: CGFloat( self.reminderArray.count * 45 + (addingNewReminder ? 45 : 0)))
             }
             VStack {
                 Color.black.opacity(0.001)
