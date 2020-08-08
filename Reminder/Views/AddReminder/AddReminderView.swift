@@ -39,14 +39,12 @@ struct AddReminderView: View {
                     self.toggleAddReminder()
                 }
             } else {
-                List {
-                    ForEach(self.reminderArray, id: \.self) { currentReminder in
-                        ReminderCellView(reminder: currentReminder, reminderListColor: COLORS[Int(self.reminderList.iconColor)])
-                    }.onDelete(perform: self.delete)
-                    if addingNewReminder {
-                        NewReminderCellView(reminderText: $newReminderText, completed: $completeReminder, reminderColor: COLORS[Int(reminderList.iconColor)], addingNewReminder: $addingNewReminder, reminderList: reminderList).animation(.none)
-                    }
-                }.frame(height: CGFloat( self.reminderArray.count * 45 + (addingNewReminder ? 45 : 0)))
+                //So that we can just relead new table without animation on insert
+                if addingNewReminder {
+                    ReminderListContainerView(reminderArray: reminderArray, reminderList: $reminderList, newReminderText: $newReminderText, addingNewReminder: $addingNewReminder, completeReminder: $completeReminder)
+                } else {
+                    ReminderListContainerView(reminderArray: reminderArray, reminderList: $reminderList, newReminderText: $newReminderText, addingNewReminder: $addingNewReminder, completeReminder: $completeReminder)
+                }
             }
             VStack {
                 Color.black.opacity(0.001)
@@ -84,6 +82,12 @@ struct AddReminderView: View {
             r.id = UUID()
             
             save()
+        }
+        
+        reminderArray.forEach{
+            if $0.text == "" {
+                self.managedObjectContext.delete($0)
+            }
         }
         
         self.newReminderText = ""
@@ -130,4 +134,43 @@ struct AddReminderView: View {
         save()
     }
 
+}
+
+struct ReminderListContainerView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    var reminderArray: FetchedResults<ReminderEntity>
+    
+    @Binding var reminderList: ReminderListEntity
+    @Binding var newReminderText: String
+    @Binding var addingNewReminder: Bool
+    @Binding var completeReminder: Bool
+    var body: some View {
+        List() {
+            ForEach(self.reminderArray, id: \.self) { currentReminder in
+                ReminderCellView(reminder: currentReminder, reminderListColor: COLORS[Int(self.reminderList.iconColor)])
+            }.onDelete(perform: self.delete)
+            if addingNewReminder {
+                NewReminderCellView(reminderText: $newReminderText, completed: $completeReminder, reminderColor: COLORS[Int(reminderList.iconColor)], addingNewReminder: $addingNewReminder, reminderList: reminderList)
+            }
+        }.frame(height: CGFloat( self.reminderArray.count * 50 + (addingNewReminder ? 42 : 0))).onAppear {
+            UITableView.appearance().separatorInset = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0)
+        }
+    }
+    
+    func save() {
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            print("Save failed \(error.localizedDescription)")
+            // TODO: Display alert
+        }
+    }
+
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let reminder = reminderArray[index]
+            managedObjectContext.delete(reminder)
+        }
+        save()
+    }
 }

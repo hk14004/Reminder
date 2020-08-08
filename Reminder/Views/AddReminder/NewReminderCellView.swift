@@ -66,9 +66,6 @@ struct NewReminderCellView: View {
                 r.text = self.reminderText
                 r.id = UUID()
                 
-                self.reminderText = ""
-                self.completed = false
-                
                 save()
             }
             
@@ -76,10 +73,16 @@ struct NewReminderCellView: View {
             
             if addingNewReminder {
                 UIApplication.shared.endEditing()
+//                self.reminderText = ""
+//                self.completed = false
             }
         }
+    func removeEmpty() {
+        //self.managedObjectContext.
+    }
     func save() {
         do {
+            
             try self.managedObjectContext.save()
         } catch {
             print("Save failed \(error.localizedDescription)")
