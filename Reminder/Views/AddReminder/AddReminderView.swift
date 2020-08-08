@@ -7,31 +7,127 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddReminderView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(
+        entity: ReminderEntity.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \ReminderEntity.orderPriority, ascending: true),
+        ]
+    ) var reminderArray: FetchedResults<ReminderEntity>
     @State var reminderList: ReminderListEntity
+    @State var newReminderText: String = ""
+    @State var addingNewReminder: Bool = false
+    @State var completeReminder: Bool = false
     
     var body: some View {
         VStack() {
             HStack() {
-                Text("\(reminderList.name ?? "gg")").foregroundColor(COLORS[Int(reminderList.iconColor)]).font(.title).bold()
+                Text("\(reminderList.name ?? "")").foregroundColor(COLORS[Int(reminderList.iconColor)]).font(.title).bold()
                 Spacer()
             }.padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-            Spacer()
-            Text("No Reminders").font(.title).foregroundColor(.gray)
-            Spacer()
+            if reminderArray.count == 0 && !addingNewReminder {
+                VStack {
+                    Color.black.opacity(0.001)
+                    Spacer()
+                }.onTapGesture {
+                    self.toggleAddReminder()
+                }
+                Text("No Reminders").font(.title).foregroundColor(.gray).onTapGesture {
+                    self.toggleAddReminder()
+                }
+            } else {
+                List {
+                    ForEach(self.reminderArray, id: \.self) { currentReminder in
+                        ReminderCellView(reminder: currentReminder, reminderListColor: COLORS[Int(self.reminderList.iconColor)])
+                    }.onDelete(perform: self.delete)
+                    if addingNewReminder {
+                        NewReminderCellView(reminderText: $newReminderText, completed: $completeReminder, reminderColor: COLORS[Int(reminderList.iconColor)], addingNewReminder: $addingNewReminder, reminderList: reminderList).animation(.none)
+                    }
+                }.frame(height: CGFloat( self.reminderArray.count * 50 + (addingNewReminder ? 50 : 0)))
+            }
+            VStack {
+                Color.black.opacity(0.001)
+                Spacer()
+            }.onTapGesture {
+                self.toggleAddReminder()
+            }
+            
             HStack() {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Image(systemName: "plus.circle.fill").resizable().aspectRatio(contentMode: .fit).frame(width: 25, height: 25).foregroundColor(.red)
-                    Text("New Reminder").foregroundColor(.red).bold()
+                Button(action: {
+                    self.toggleAddReminder()
+                }) {
+                    Image(systemName: "plus.circle.fill").resizable().aspectRatio(contentMode: .fit).frame(width: 25, height: 25).foregroundColor(COLORS[Int(reminderList.iconColor)])
+                    Text("New Reminder").foregroundColor(COLORS[Int(reminderList.iconColor)]).bold()
                 }
                 Spacer()
             }.padding(15)
         }.background(Color("customForeground")).navigationBarItems(trailing:
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Button(action: {}) {
                 Image(systemName: "ellipsis").resizable().aspectRatio(contentMode: .fit).frame(width: 22, height: 22).foregroundColor(Color.blue).padding(5).background(Color("CustomBackground")).cornerRadius(30)
             }
         ).navigationBarColor(.white).navigationBarTitle("", displayMode: .inline)
     }
+    
+    func toggleAddReminder() {
+        if !self.newReminderText.isEmpty && addingNewReminder {
+            // save
+            print("SAVE!")
+            let r = ReminderEntity(context: managedObjectContext)
+            r.completed = self.completeReminder
+            r.orderPriority = getLastID() + 1
+            r.reminderList = self.reminderList.id?.uuidString
+            r.text = self.newReminderText
+            r.id = UUID()
+            
+            save()
+        }
+        
+        self.newReminderText = ""
+        self.completeReminder = false
+        
+        self.addingNewReminder = self.addingNewReminder ? false : true
+        
+        if addingNewReminder {
+            UIApplication.shared.endEditing()
+        }
+    }
+    
+    private func getLastID() -> Int64 {
+        let fetchRequest = NSFetchRequest<ReminderEntity>(entityName: "ReminderEntity")
+        
+        fetchRequest.fetchLimit = 1
+        let sortDescriptor = NSSortDescriptor(key: "orderPriority", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            let list = try managedObjectContext.fetch(fetchRequest)
+            print(list)
+            return list.count == 0 ? 0 : list[0].orderPriority
+        } catch let error as NSError {
+            // failure
+            print("Fetch failed: \(error.localizedDescription)")
+            return 0
+        }
+    }
+    
+    func save() {
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            print("Save failed \(error.localizedDescription)")
+            // TODO: Display alert
+        }
+    }
+
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let reminder = reminderArray[index]
+            managedObjectContext.delete(reminder)
+        }
+        save()
+    }
+
 }
