@@ -25,9 +25,9 @@ struct ReminderCellView: View {
             }
 
             TextField("Write a reminder", text: Binding($reminder.text, ""))
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Image(systemName: "info.circle").resizable().frame(width: 20, height: 20).padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-            }
+//            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+//                Image(systemName: "info.circle").resizable().frame(width: 20, height: 20).padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+//            }
         }.padding(.leading, 15)
     }
 }

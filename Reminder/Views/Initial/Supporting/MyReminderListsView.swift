@@ -36,7 +36,7 @@ struct MyReminderListsView: View {
                 List() {
                     ForEach(self.reminderListArray, id: \.self) { reminderList in
                         NavigationLink(destination: AddReminderView(reminderList: reminderList)) {
-                            MyListsCellView(reminderList: reminderList).padding(.leading, -5)
+                            MyListsCellView(reminderList: reminderList, totalReminderCount: self.getReminderCount(from: reminderList)).padding(.leading, -5)
                         }
                     }.onDelete(perform: self.delete).onMove(perform: move)
                 }.animation(.default).cornerRadius(10).frame(height: CGFloat( self.reminderListArray.count * 44))
@@ -44,6 +44,14 @@ struct MyReminderListsView: View {
             Spacer()
             
         }.padding(.leading, 10).padding(.trailing, 10).padding(.top, 15).padding(.bottom, -15).animation(.default)
+    }
+    
+    func getReminderCount(from reminderList: ReminderListEntity) -> Int {
+        let request: NSFetchRequest<ReminderEntity> = NSFetchRequest(entityName: "ReminderEntity")
+        request.predicate = NSPredicate(format: "reminderList == %@", reminderList.id?.uuidString ?? "")
+        let results = try? managedObjectContext.fetch(request)
+        
+        return results?.count ?? 0
     }
     
     func move(from source: IndexSet, to destination: Int) {
