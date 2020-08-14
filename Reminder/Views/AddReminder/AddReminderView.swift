@@ -10,18 +10,23 @@ import SwiftUI
 import CoreData
 
 struct AddReminderView: View {
+    var request: FetchRequest<ReminderEntity>
+    var reminderArray: FetchedResults<ReminderEntity>{ request.wrappedValue }
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(
-        entity: ReminderEntity.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \ReminderEntity.orderPriority, ascending: true),
-        ]
-    ) var reminderArray: FetchedResults<ReminderEntity>
-    @State var reminderList: ReminderListEntity
+    var reminderList: ReminderListEntity
     @State var newReminderText: String = ""
     @State var addingNewReminder: Bool = false
     @State var completeReminder: Bool = false
         
+    init(reminderList: ReminderListEntity) {
+        self.request = FetchRequest(
+            entity: ReminderEntity.entity(),
+            sortDescriptors: [NSSortDescriptor(keyPath: \ReminderListEntity.orderPriority, ascending: true)],
+            predicate: NSPredicate(format: "reminderList=%@", "\(reminderList.id?.uuidString ?? "")")
+        )
+        self.reminderList = reminderList
+    }
+    
     var body: some View {
         VStack() {
             reminderListNameView()
