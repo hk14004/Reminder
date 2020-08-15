@@ -36,12 +36,7 @@ struct AddReminderView: View {
                     self.toggleAddReminder()
                 }
             } else {
-                //So that we can just reload new table without animation on insert
-                if addingNewReminder {
-                    reminderListContainerView()
-                } else {
-                    reminderListContainerView()
-                }
+                reminderListContainerView()
             }
             emptyAddReminderToggleView()
             addNewReminderButtonView()
@@ -60,7 +55,7 @@ struct AddReminderView: View {
             if addingNewReminder {
                 NewReminderCellView(reminderText: $newReminderText, completed: $completeReminder, reminderColor: COLORS[Int(reminderList.iconColor)], addingNewReminder: $addingNewReminder, reminderList: reminderList)
             }
-        }.frame(height: CGFloat( self.reminderArray.count * 50 + (addingNewReminder ? 42 : 0))).onAppear {
+        }.frame(height: CGFloat( self.reminderArray.count * 45 + (addingNewReminder ? 45 : 0))).onAppear {
             UITableView.appearance().separatorInset = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0)
         }.buttonStyle(PlainButtonStyle())
     }
