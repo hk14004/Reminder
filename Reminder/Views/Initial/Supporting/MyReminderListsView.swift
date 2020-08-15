@@ -39,7 +39,7 @@ struct MyReminderListsView: View {
                             MyListsCellView(reminderList: reminderList).padding(.leading, -5)
                         }
                     }.onDelete(perform: self.delete).onMove(perform: move)
-                }.animation(.default).cornerRadius(10).frame(height: CGFloat( self.reminderListArray.count * 44))
+                }.animation(.default).cornerRadius(10).frame(height: CGFloat( self.reminderListArray.count * 44)).onAppear {UITableView.appearance().separatorInset = UIEdgeInsets(top: 0, left: 55, bottom: 0, right: 0)}
             }
             Spacer()
             
