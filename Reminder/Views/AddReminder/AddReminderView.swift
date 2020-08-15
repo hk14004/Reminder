@@ -62,7 +62,7 @@ struct AddReminderView: View {
             }
         }.frame(height: CGFloat( self.reminderArray.count * 50 + (addingNewReminder ? 42 : 0))).onAppear {
             UITableView.appearance().separatorInset = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0)
-        }
+        }.buttonStyle(PlainButtonStyle())
     }
     
     private func toggleAddReminder() {

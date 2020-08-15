@@ -19,7 +19,7 @@ struct ReminderCellView: View {
                self.completed = self.completed ? false : true
             }) {
                 if !completed {
-                    RoundedRectangle(cornerRadius: 15, style: .continuous).stroke(Color.gray, lineWidth: 2).frame(width: 20, height: 20)
+                    RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(Color.gray, lineWidth: 1).frame(width: 21, height: 21)
                 } else {
                     RoundedRectangle(cornerRadius: 15, style: .continuous).foregroundColor(self.reminderListColor).frame(width: 15, height: 15).padding(3).overlay(RoundedRectangle(cornerRadius: 30).stroke(self.reminderListColor, lineWidth: 2))
                 }
