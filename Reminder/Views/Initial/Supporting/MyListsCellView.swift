@@ -19,7 +19,7 @@ struct MyListsCellView: View {
         self.request = FetchRequest(
             entity: ReminderEntity.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \ReminderListEntity.orderPriority, ascending: true)],
-            predicate: NSPredicate(format: "reminderList=%@", "\(reminderList.id?.uuidString ?? "")")
+            predicate: NSPredicate(format: "reminderList=%@ AND completed=%d", "\(reminderList.id?.uuidString ?? "")", false)
         )
         self.reminderList = reminderList
     }

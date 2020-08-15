@@ -22,7 +22,7 @@ struct AddReminderView: View {
         self.request = FetchRequest(
             entity: ReminderEntity.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \ReminderListEntity.orderPriority, ascending: true)],
-            predicate: NSPredicate(format: "reminderList=%@", "\(reminderList.id?.uuidString ?? "")")
+            predicate: NSPredicate(format: "reminderList=%@ AND completed=%d", "\(reminderList.id?.uuidString ?? "")", false)
         )
         self.reminderList = reminderList
     }
@@ -49,7 +49,7 @@ struct AddReminderView: View {
             Button(action: {}) {
                 Image(systemName: "ellipsis").resizable().aspectRatio(contentMode: .fit).frame(width: 22, height: 22).foregroundColor(Color.blue).padding(5).background(Color("CustomBackground")).cornerRadius(30)
             }
-        ).navigationBarColor(.white).navigationBarTitle("", displayMode: .inline)
+            ).navigationBarColor(.white).navigationBarTitle("", displayMode: .inline).onDisappear {(UIApplication.shared.delegate as? AppDelegate)?.saveContext()}
     }
     
     private func reminderListContainerView() -> some View {
