@@ -1,4 +1,4 @@
-# iOS 13.0 Reminder App Clone
+# iOS 13.0 Reminder App Clone - In progress
 
 ## Main view
 <img src="Screenshots/img1.png" height="700" alt="">
